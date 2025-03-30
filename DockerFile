@@ -1,0 +1,23 @@
+# Gunakan image Node.js sebagai base image
+FROM node:18-alpine
+
+# Atur working directory
+WORKDIR /app
+
+# Salin package.json dan package-lock.json terlebih dahulu (agar caching lebih efektif)
+COPY package*.json ./
+
+# Install dependencies
+RUN npm install --production
+
+# Salin seluruh kode proyek ke dalam container
+COPY . .
+
+# Build proyek (jika menggunakan TypeScript)
+RUN npm run build
+
+# Ekspose port yang digunakan NestJS (Railway akan otomatis mendeteksi)
+EXPOSE 3000
+
+# Jalankan aplikasi
+CMD ["node", "dist/main.js"]

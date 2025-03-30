@@ -1,5 +1,5 @@
 ### [400 BAD REQUEST] Register 
-POST http://localhost:3000/api/auth/register
+POST https://backend-absolute-cinema-production.up.railway.app/api/auth/register
 Content-Type: application/json
 
 {
