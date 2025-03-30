@@ -1,0 +1,46 @@
+### [400 BAD REQUEST] Register 
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "",
+  "email": "",
+  "password": ""
+}
+
+### [201 SUCCESS] Register
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "test",
+  "email": "test@example.com",
+  "password": "testpassword"
+}
+
+### [400 BAD REQUEST] Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "",
+  "password": ""
+}
+
+### [404 NOT FOUND] Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "not_found@example.com",
+  "password": "testpassword"
+}
+
+### [200 SUCCESS] Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "test@example.com",
+  "password": "testpassword"
+}
