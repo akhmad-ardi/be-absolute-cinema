@@ -3,18 +3,13 @@ import {
   Injectable,
   NotFoundException,
 } from '@nestjs/common';
-import { JwtService, JwtSignOptions } from '@nestjs/jwt';
+import { JwtService } from '@nestjs/jwt';
 import { LoginType, RegisterType } from './auth.validation';
 import { PrismaService } from '../common/prisma.service';
 import { BcryptService } from '../common/bcrypt.service';
 
 @Injectable()
 export class AuthService {
-  private jwtConfig: JwtSignOptions = {
-    secret: process.env.SECRET_KEY,
-    expiresIn: '3 days',
-  };
-
   constructor(
     private jwtService: JwtService,
     private prismaService: PrismaService,
@@ -33,7 +28,7 @@ export class AuthService {
 
     const user = await this.prismaService.user.create({ data });
 
-    const token = this.jwtService.sign({ email: user.email }, this.jwtConfig);
+    const token = this.jwtService.sign({ id: user.id, email: user.email });
 
     return { access_token: token };
   }
@@ -54,7 +49,7 @@ export class AuthService {
       throw new BadRequestException('Email or password is invalid');
     }
 
-    const token = this.jwtService.sign({ email: user.email }, this.jwtConfig);
+    const token = this.jwtService.sign({ id: user.id, email: user.email });
 
     return { access_token: token };
   }

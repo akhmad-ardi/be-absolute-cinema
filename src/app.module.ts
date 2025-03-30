@@ -5,7 +5,7 @@ import { MovieModule } from './movie/movie.module';
 import { UserModule } from './user/user.module';
 
 @Module({
-  imports: [AuthModule, CommonModule, MovieModule, UserModule],
+  imports: [CommonModule, AuthModule, MovieModule, UserModule],
   controllers: [],
   providers: [],
 })

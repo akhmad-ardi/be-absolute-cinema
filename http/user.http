@@ -1,0 +1,6 @@
+@token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJ0ZXN0QGV4YW1wbGUuY29tIiwiaWF0IjoxNzQzMzI4MDE2LCJleHAiOjE3NDM0MTQ0MTZ9.tM-5_TUec716msY9tAH63zWLkYok9JyUWsiVQGcS8SM
+
+### [200 SUCCESS] Get User
+GET http://localhost:3000/api/user
+Content-Type: application/json
+Authorization: Bearer {{token}}

@@ -17,7 +17,7 @@ model User {
 }
 
 model MovieSaved {
-  id         Int    @id
+  movie_id   Int    @id
   title      String
   poster_url String
   user_id    Int
